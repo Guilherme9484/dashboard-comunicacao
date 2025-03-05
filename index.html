@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sistema de Comunicação - Versão 2025</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- CSS -->
+  <link href="assets/css/style.css" rel="stylesheet" />
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" />
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- FullCalendar -->
+  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.6/index.global.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.6/index.global.min.js"></script>
+  <!-- SheetJS (Excel) -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+  <!-- jsPDF (PDF) -->
+  <script src="https://cdn.jsdelivr.net/npm/jspdf/dist/jspdf.umd.min.js"></script>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Loading Overlay -->
+  <div id="loading-overlay" class="d-none">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Carregando...</span>
+    </div>
+  </div>
+
+  <!-- Login Section -->
+  <div id="section-login">
+    <div id="login-card">
+      <h2>Bem-vindo</h2>
+      <form id="login-form">
+        <div class="mb-3">
+          <label for="login-user" class="form-label">Usuário/Email</label>
+          <input type="text" class="form-control" id="login-user" placeholder="Digite seu usuário" required>
+        </div>
+        <div class="mb-3">
+          <label for="login-password" class="form-label">Senha</label>
+          <input type="password" class="form-control" id="login-password" placeholder="Digite sua senha" required>
+        </div>
+        <div class="mb-3">
+          <label for="login-type" class="form-label">Tipo de Login</label>
+          <select id="login-type" class="form-select">
+            <option value="padrao">Padrão</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+        <button type="submit" class="btn login-btn">Entrar</button>
+      </form>
+      <div id="login-output" class="text-center mt-3"></div>
+    </div>
+  </div>
+
+  <!-- Main App Container (Hidden until login) -->
+  <div id="app-container" class="d-none">
+    <!-- Mobile Menu Button -->
+    <button id="mobile-menu"><i class="bi bi-list"></i></button>
+
+    <!-- Theme Toggle -->
+    <div class="theme-toggle">
+      <button id="toggle-theme" class="btn btn-sm">
+        <i class="bi bi-lightbulb"></i> Modo Claro/Escuro
+      </button>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <img src="assets/img/logo.png" alt="Logo" class="sidebar-logo">
+        <h3>Sistema de Comunicação</h3>
+      </div>
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a href="#dashboard" class="nav-link active" data-section="dashboard">
+            <i class="bi bi-speedometer2"></i> Dashboard
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#agendamento" class="nav-link" data-section="agendamento">
+            <i class="bi bi-calendar-check"></i> Agendamentos
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#contato" class="nav-link" data-section="contato">
+            <i class="bi bi-people"></i> Contatos
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#mensagem" class="nav-link" data-section="mensagem">
+            <i class="bi bi-chat-dots"></i> Mensagem Disponível
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#mensagens-enviadas" class="nav-link" data-section="mensagens-enviadas">
+            <i class="bi bi-send-check"></i> Mensagens Enviadas
+          </a>
+        </li>
+        <li class="nav-item admin-only">
+          <a href="#admin" class="nav-link" data-section="admin">
+            <i class="bi bi-gear"></i> Gestão de Usuários
+          </a>
+        </li>
+      </ul>
+      <div class="sidebar-footer">
+        <button id="btn-logout" class="btn btn-logout">
+          <i class="bi bi-box-arrow-right"></i> Sair
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <main id="main-content">
+      <!-- Content sections will be loaded here -->
+    </main>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- App Scripts -->
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+  <script src="assets/js/calendar.js"></script>
+  <script src="assets/js/contacts.js"></script>
+  <script src="assets/js/messages.js"></script>
+  <script src="assets/js/templates.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
